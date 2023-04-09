@@ -12,7 +12,8 @@ public class Auto extends Vehiculo {
     
     @Override
     public double calcularCostoDeCombustible(double d) {
-        return d*(7/100);
+        double res=d*0.07;
+        return res;
     }
 
     @Override

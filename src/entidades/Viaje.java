@@ -18,11 +18,21 @@ public class Viaje {
     public Viaje(Ciudad origen, Ciudad destino, double distancia, Vehiculo v, int peajes) {
         this.origen = origen;
         this.destino = destino;
-        this.distancia = origen.getRuta() == destino.getRuta() ? origen.getKm() - destino.getKm() : distancia;
-        this.distancia = this.distancia < 0 ? this.distancia * (-1) : this.distancia;
+        this.distancia = distancia;
+        
         this.v = v;
         this.peajes = peajes;
     }
+
+    public Viaje(Ciudad origen, Ciudad destino, Vehiculo v, int peajes) {
+        this.origen = origen;
+        this.destino = destino;
+        this.v = v;
+        this.peajes = peajes;
+        this.costo = costo;
+        this.distancia= Math.abs(origen.getKm()-destino.getKm());
+    }
+    
 
     public Ciudad getOrigen() {
         return origen;
