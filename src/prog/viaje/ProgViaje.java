@@ -27,10 +27,10 @@ public class ProgViaje {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
         DecimalFormat f= new DecimalFormat("###.00");
-        Vehiculo auto = new Auto("toyota", "tdc518", "nafta");
+        Vehiculo auto = new Auto("Renaul", "tdc518", "nafta");
         Vehiculo camioneta1 = new Camioneta("toyota", "tdc518", "diesel");
-        Vehiculo camion = new Camion("toyota", "tdc518", "nafta");
-        Vehiculo auto2 = new Auto("toyota", "tdc518", "gnc");
+        Vehiculo camion = new Camion("Mercedes", "tdc518", "nafta");
+        Vehiculo auto2 = new Auto("Fiat", "tdc518", "gnc");
         
         Ciudad c1= new Ciudad(148, 100, "ciudad 1");
         Ciudad c2= new Ciudad(148, 250, "ciudad 2");
@@ -79,13 +79,43 @@ public class ProgViaje {
              default:
                  a2=c1;
          }
+         
+         System.out.println("En que veiculo viajara:");
+         System.out.println("1- Auto "+ auto.getMarca()+", combustible: "+auto.getCombustible());
+         System.out.println("2- Auto "+ auto2.getMarca()+", combustible: "+auto2.getCombustible());
+         System.out.println("3- Camioneta "+ camioneta1.getMarca()+", combustible: "+camioneta1.getCombustible());
+         System.out.println("4- Camion"+ camion.getMarca()+", combustible: "+camion.getCombustible());
+         
+         op= sc.nextInt();
+         Vehiculo a;
+         switch(op){
+             case 1:
+                 a=auto;
+                 break;
+             case 2:
+                 a=auto2;
+                 break;
+             case 3:
+                 a=camioneta1;
+                 break;
+             case 4:
+                 a=camion;
+                 break;
+             default:
+                 a=auto;
+         }
+         
+         
         Viaje v1;
+        
+        System.out.println("Ingrese la cantidad de peajes:");
+        int pe=sc.nextInt();
         if(a1.getRuta()==a2.getRuta()){
-           v1 = new Viaje(c2, c1, auto, 2);
+           v1 = new Viaje(a1, a2, a, pe);
         }else{
             System.out.println("Las ciudades no estan en la misma ruta, Ingrese la distancia.");
             double dis= sc.nextDouble();
-            v1 = new Viaje(c2, c1,dis, auto, 2);
+            v1 = new Viaje(a1, a2,dis, a, pe);
         }
         
         
