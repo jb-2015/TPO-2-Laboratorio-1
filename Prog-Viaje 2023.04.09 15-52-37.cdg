@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Prog-Viaje">
   <ClassDiagramComponents>
-    <Class name="Auto" package="entidades" visibility="public" xPosition="13.0" yPosition="658.0">
+    <Class name="Auto" package="entidades" visibility="public" xPosition="16.0" yPosition="282.0">
       <Fields/>
       <Constructors>
         <Constructor visibility="public"/>
@@ -19,7 +19,7 @@
         <Method name="costoPeaje" returnType="double" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Camion" package="entidades" visibility="public" xPosition="11.0" yPosition="478.0">
+    <Class name="Camion" package="entidades" visibility="public" xPosition="16.0" yPosition="509.0">
       <Fields/>
       <Constructors>
         <Constructor visibility="public"/>
@@ -36,7 +36,7 @@
         <Method name="costoPeaje" returnType="double" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Camioneta" package="entidades" visibility="public" xPosition="133.0" yPosition="199.0">
+    <Class name="Camioneta" package="entidades" visibility="public" xPosition="16.0" yPosition="34.0">
       <Fields/>
       <Constructors>
         <Constructor visibility="public"/>
@@ -53,7 +53,7 @@
         <Method name="costoPeaje" returnType="double" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Ciudad" package="entidades" visibility="public" xPosition="1403.0" yPosition="297.0">
+    <Class name="Ciudad" package="entidades" visibility="public" xPosition="894.0" yPosition="457.0">
       <Fields>
         <Field name="ruta" type="int" visibility="private"/>
         <Field name="km" type="int" visibility="private"/>
@@ -82,7 +82,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Vehiculo" package="entidades" visibility="public" isAbstract="true" xPosition="438.0" yPosition="432.0">
+    <Class name="Vehiculo" package="entidades" visibility="public" isAbstract="true" xPosition="499.0" yPosition="169.0">
       <Fields>
         <Field name="comb" type="String[]" visibility="protected"/>
         <Field name="precio" type="double[]" visibility="protected"/>
@@ -117,7 +117,7 @@
         <Method name="costoPeaje" returnType="double" visibility="public" isAbstract="true"/>
       </Methods>
     </Class>
-    <Class name="Viaje" package="entidades" visibility="public" xPosition="871.0" yPosition="122.0">
+    <Class name="Viaje" package="entidades" visibility="public" xPosition="1274.0" yPosition="97.0">
       <Fields>
         <Field name="origen" type="Ciudad" visibility="private"/>
         <Field name="destino" type="Ciudad" visibility="private"/>
@@ -131,6 +131,12 @@
           <Argument type="Ciudad" name="origen"/>
           <Argument type="Ciudad" name="destino"/>
           <Argument type="double" name="distancia"/>
+          <Argument type="Vehiculo" name="v"/>
+          <Argument type="int" name="peajes"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Ciudad" name="origen"/>
+          <Argument type="Ciudad" name="destino"/>
           <Argument type="Vehiculo" name="v"/>
           <Argument type="int" name="peajes"/>
         </Constructor>
@@ -164,7 +170,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="ProgViaje" package="prog.viaje" visibility="public" xPosition="1820.0" yPosition="20.0">
+    <Class name="ProgViaje" package="prog.viaje" visibility="public" xPosition="544.0" yPosition="34.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -176,12 +182,10 @@
   </ClassDiagramComponents>
   <ClassDiagramRelations>
     <HasRelation name="destino" source="entidades.Viaje" target="entidades.Ciudad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="origen" source="entidades.Viaje" target="entidades.Ciudad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="entidades.Auto" target="entidades.Vehiculo"/>
     <HasRelation name="v" source="entidades.Viaje" target="entidades.Vehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="entidades.Viaje" target="entidades.Ciudad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="origen" source="entidades.Viaje" target="entidades.Ciudad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <IsRelation name="is" source="entidades.Camion" target="entidades.Vehiculo"/>
+    <IsRelation name="is" source="entidades.Auto" target="entidades.Vehiculo"/>
     <IsRelation name="is" source="entidades.Camioneta" target="entidades.Vehiculo"/>
-    <UseRelation source="entidades.Viaje" target="entidades.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
